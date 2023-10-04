@@ -56,12 +56,30 @@ public class SpaDayController {
         facials.add("Rejuvenating");
         facials.add("Enzyme Peel");
 
+
+
+
         ArrayList<String> appropriateFacials = new ArrayList<>();
         for (int i = 0; i < facials.size(); i ++) {
             if (checkSkinType(skintype,facials.get(i))) {
                 appropriateFacials.add(facials.get(i));
             }
         }
+        model.addAttribute( "appropriateFacials", appropriateFacials);
+
+        model.addAttribute("name", name);
+        model.addAttribute("skintype", skintype);
+        model.addAttribute("manipedi", manipedi);
+
+        ArrayList<String> polishChoices = new ArrayList<>();
+        polishChoices.add("#FFCCCC");
+        polishChoices.add("#CC9999");
+        polishChoices.add("#FF9999");
+        polishChoices.add("#CC6699");
+        polishChoices.add("#CC3366");
+        polishChoices.add("#FF3399");
+
+        model.addAttribute("polishChoices", polishChoices);
 
         return "menu";
     }
